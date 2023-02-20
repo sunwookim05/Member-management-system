@@ -6,15 +6,15 @@
 import SYSTEM System;
 
 int main(void){
+    Scanner sc = new_Scanner(System.in);
     USERS users = new_User();
+    USERDATA user = new_UserData();
     FILE *fp;
     boolean isSignup = false;
     boolean isLogin = false;
     uint8_t menu = 0;
 
     while (true){
-        USERDATA user = new_UserData();
-        Scanner sc = new_Scanner(System.in);
         System.out.print("Select menu\n1. Sign up\n2. Login\n3. Logout\n");
         menu = sc.nextByte();
 
@@ -26,9 +26,9 @@ int main(void){
             System.out.println(isLogin ? "Login success" : "Login failed");
         }else if(menu == 3){
             break;
-        }
-        delete_UserData(&user);
+        }    
     }
 
+    delete_UserData(&user);
     return 0;
 }
