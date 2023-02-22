@@ -14,6 +14,12 @@ typedef struct __USERS__{
     boolean (*login)(USERDATA *, FILE *);
 }USERS;
 
+typedef enum MENU{
+    SIGNUP = 1,
+    LOGIN,
+    EXIT
+}MENU;
+
 USERS new_User();
 USERDATA new_UserData();
 void delete_UserData(USERDATA *);

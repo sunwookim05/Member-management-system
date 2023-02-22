@@ -12,19 +12,19 @@ int main(void){
     FILE *fp;
     boolean isSignup = false;
     boolean isLogin = false;
-    uint8_t menu = 0;
+    MENU menu = 0;
 
     while (true){
         System.out.print("Select menu\n1. Sign up\n2. Login\n3. Logout\n");
         menu = sc.nextByte();
 
-        if(menu == 1){
+        if(menu == SIGNUP){
             isSignup = users.signup(&user, fp);
             System.out.println(isSignup ? "Sign up success" : "Sign up failed");
-        }else if(menu == 2){
+        }else if(menu == LOGIN){
             isLogin = users.login(&user, fp);
             System.out.println(isLogin ? "Login success" : "Login failed");
-        }else if(menu == 3){
+        }else if(menu == EXIT){
             break;
         }    
     }
