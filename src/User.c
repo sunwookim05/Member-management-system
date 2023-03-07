@@ -58,8 +58,25 @@ boolean login(USERDATA *user, FILE *fp){
     return false;
 }
 
+boolean logout(USERDATA *info){
+    Scanner sc = new_Scanner(System.in);
+    System.out.print("Do you want to logout? (y/n): ");
+    char bf = sc.nextChar();
+    if(bf == 'y' | 'Y'){
+        info->id = NULL;
+        info->password = NULL;
+        delete_UserData(info);
+        System.out.println("Logout success");
+        return true;
+    }else{
+        System.out.println("Logout failed");
+        return false;
+    }
+}
+
 USERS new_User(){
     USERS user;
+    user.logout = logout;
     user.signup = signup;
     user.login = login;
     return user;
