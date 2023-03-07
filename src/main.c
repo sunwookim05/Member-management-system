@@ -40,8 +40,9 @@ int main(void){
             else System.out.println("Please login");
         }else if(menu == EXIT){
             break;
+        }else{
+            System.out.println("Wrong menu");
         }
-        // System.out.println("%s\n%s", user.id, user.password);
     }
 
     delete_UserData(&user);
