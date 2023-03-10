@@ -10,6 +10,7 @@ typedef struct __USERDATA__{
 }USERDATA;
 
 typedef struct __USERS__{
+    void (*writeLog)(uint8_t, USERDATA, FILE *);
     boolean (*logout)(USERDATA *);
     boolean (*signup)(USERDATA *, FILE *);
     boolean (*login)(USERDATA *, FILE *);

@@ -4,10 +4,18 @@
 
 import SYSTEM System;
 
-
 void delete_UserData(USERDATA *info){
     free(info->id);
     free(info->password);
+}
+
+void writeLog(uint8_t logCate, USERDATA info, FILE *fp){
+    String logCateStr[3] = {"SIGNUP", "LOGIN", "LOGOUT"};
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    fp = fopen("log.txt", "a");
+    fprintf(fp, "%d-%d-%d %d:%d:%d %s\nID: %s\nPassword: %s\n\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, logCateStr[logCate - 1], info.id, info.password);
+    fclose(fp);
 }
 
 boolean signup(USERDATA *info, FILE *fp){
@@ -79,6 +87,7 @@ USERS new_User(){
     user.logout = logout;
     user.signup = signup;
     user.login = login;
+    user.writeLog = writeLog;
     return user;
 }
 

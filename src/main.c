@@ -21,17 +21,20 @@ int main(void){
         if(menu == SIGNUP){
             isSignup = users.signup(&user, fp);
             System.out.println(isSignup ? "Sign up success" : "Sign up failed");
+            if (isSignup) users.writeLog(SIGNUP, user, fp);
         }else if(menu == LOGIN){
             if(isLogin){
                 System.out.println("Already login");
             }else{
                 isLogin = users.login(&user, fp);
                 System.out.println(isLogin ? "Login success" : "Login failed");
+                users.writeLog(LOGIN, user, fp);
             }
         }else if(menu == LOGOUT){
             if(!isLogin){
                 System.out.println("Already logout");
             }else{
+                users.writeLog(LOGOUT, user, fp);
                 isLogout = users.logout(&user);
                 if(isLogout) isLogin = false;
             }
