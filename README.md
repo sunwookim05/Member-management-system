@@ -8,4 +8,4 @@ gcc -c src\System.c -I inc\
 
 gcc -c src\User.c -I inc\
 
-gcc -o main main.o Scanner.o Systemout.o User.o
+gcc -o main main.o Scanner.o System.o User.o
