@@ -4,7 +4,7 @@ gcc -c src\main.c -I inc\
 
 gcc -c src\Scanner.c -I inc\
 
-gcc -c src\Systemout.c -I inc\
+gcc -c src\System.c -I inc\
 
 gcc -c src\User.c -I inc\
 
